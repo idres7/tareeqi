@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>طريقي للمعدل</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f7;--cd:#fff;--c2:#e6ecf4;--tx:#0f172a;--mu:#64748b;--bd:#d5dde8;--ac:#059669;--bl:#2563eb;--am:#d97706;--rd:#dc2626;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0b1220;--cd:#131c2e;--c2:#1c2840;--tx:#e8eef8;--mu:#8a98b3;--bd:#22304a;--ac:#10b981;--bl:#60a5fa;--am:#fbbf24;--rd:#f87171}}
+:root[data-theme=dark]{--bg:#0b1220;--cd:#131c2e;--c2:#1c2840;--tx:#e8eef8;--mu:#8a98b3;--bd:#22304a;--ac:#10b981;--bl:#60a5fa;--am:#fbbf24;--rd:#f87171}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:500 15px/1.5 Tajawal,system-ui,sans-serif;padding-bottom:88px}
+.w{max-width:640px;margin:auto;padding:0 14px}
+h1,h2,h3{margin:0}h2,h3{font-size:16px}small{color:var(--mu);font-size:12px}p{margin:8px 0}
+.hd{display:flex;align-items:center;gap:10px;padding:14px 0}.hd>div{flex:1}.hd h1{font-size:18px}
+.logo{width:42px;height:42px;border-radius:12px;background:var(--ac);display:grid;place-items:center;font-size:22px}
+.pill{background:var(--c2);border-radius:20px;padding:5px 12px;font-size:12px;text-align:center}
+.ib{background:var(--c2);border:0;color:var(--tx);border-radius:12px;width:40px;height:40px;font-size:18px;cursor:pointer}
+#tk{background:var(--ac);color:#fff;border-radius:10px;padding:8px 12px;font-size:13px;margin-bottom:12px}
+.cd{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}.g2 .cd{margin:0}
+.st b{display:block;font-size:26px}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:6px 0 10px}
+.sr{display:flex;justify-content:space-between;align-items:center;margin:6px 0;gap:8px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-left:6px}
+.bar{height:8px;background:var(--c2);border-radius:8px;overflow:hidden}.fill{height:100%;background:var(--ac);border-radius:8px;transition:width .3s}.fill.o{background:var(--am)}
+.ex{border-color:var(--am)}.bdg{background:var(--am);color:#fff;font-size:11px;border-radius:8px;padding:2px 8px}
+.b{font:inherit;border:0;border-radius:12px;padding:9px 14px;cursor:pointer;background:var(--c2);color:var(--tx)}
+.b.p{background:var(--ac);color:#fff}.b.d{background:var(--rd);color:#fff}.big{padding:13px 34px;font-size:17px;font-weight:700}
+.ct{display:flex;align-items:center;gap:10px}.ct b{min-width:22px;text-align:center}
+input,select,textarea{font:inherit;width:100%;background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:12px;padding:10px 12px}
+textarea{resize:vertical}
+.gl{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--mu)}.gl input{width:64px;padding:6px;text-align:center}
+.tabs{display:flex;background:var(--c2);border-radius:14px;padding:4px;gap:4px;margin-bottom:12px}
+.tabs button{flex:1;border:0;background:none;color:var(--mu);font:inherit;font-size:13px;padding:8px 4px;border-radius:10px;cursor:pointer}.tabs button.on{background:var(--ac);color:#fff}
+.ring{position:relative;width:230px;margin:14px auto}.ring svg{width:100%}
+.tr{fill:none;stroke:var(--c2);stroke-width:8}.pg{fill:none;stroke:var(--ac);stroke-width:8;stroke-linecap:round;stroke-dasharray:339.3}
+.tm{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.tm b{font-size:42px;font-variant-numeric:tabular-nums}
+.ctl{display:flex;justify-content:center;gap:12px;margin-bottom:10px}
+details{margin-top:12px}summary{cursor:pointer;color:var(--mu)}details .g2{margin-top:10px}details label{font-size:12px;color:var(--mu)}
+.chart{display:flex;gap:6px;height:130px;align-items:flex-end;margin-top:10px}.cl{flex:1;display:flex;flex-direction:column;align-items:center}
+.cb{height:110px;width:100%;display:flex;align-items:flex-end;gap:2px}.cb i{flex:1;border-radius:4px 4px 0 0;min-height:2px}
+.lg{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:10px 0 6px;font-size:12px;color:var(--mu)}.lg i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-left:5px;vertical-align:-1px}
+.ch2{direction:ltr;display:flex;gap:6px;margin:10px 0 84px}
+.ya{display:flex;flex-direction:column;justify-content:space-between;text-align:right;font-size:11px;color:var(--mu);height:180px;line-height:0}
+.pl{flex:1;height:180px;position:relative;border-bottom:1px solid var(--bd);background:repeating-linear-gradient(to bottom,var(--c2) 0,var(--c2) 1px,transparent 1px,transparent 18px);display:flex;gap:4px}
+.cl2{flex:1;height:100%;display:flex;align-items:flex-end;justify-content:center}
+.bw{position:relative;width:70%;height:100%}.bw i{position:absolute;bottom:0;left:0;right:0;border-radius:5px 5px 0 0}
+.lb{position:absolute;top:100%;right:50%;margin-top:8px;transform-origin:100% 0;transform:rotate(-45deg);white-space:nowrap;font-size:11px;color:var(--mu);direction:rtl}
+.nt{font-size:13px;color:var(--mu);white-space:pre-wrap;margin-top:4px}
+nav{position:fixed;bottom:0;inset-inline:0;display:flex;background:var(--cd);border-top:1px solid var(--bd);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:5}
+nav button{flex:1;min-width:0;padding:0;background:none;border:0;color:var(--mu);font:inherit;font-size:10px;cursor:pointer;display:grid;gap:2px;justify-items:center}nav button span{font-size:17px}nav button.on{color:var(--ac);font-weight:700}
+.ov{position:fixed;inset:0;background:#0009;display:grid;place-items:center;z-index:20;padding:14px}
+.mb{background:var(--cd);border-radius:18px;padding:16px;width:100%;max-width:480px;max-height:88vh;overflow:auto}
+.mb label{display:block;margin:10px 0 4px;color:var(--mu);font-size:13px}.mh{display:flex;justify-content:space-between;align-items:center}
+.ba{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.mb label.ck{display:flex;align-items:center;gap:10px;color:var(--tx);font-size:15px}.ck input{width:20px;height:20px}
+#t{position:fixed;bottom:92px;inset-inline:16px;margin:auto;max-width:420px;background:var(--tx);color:var(--bg);padding:10px 14px;border-radius:12px;text-align:center;opacity:0;pointer-events:none;transition:.25s;z-index:30}
+#t.show{opacity:1}#t.er{background:var(--rd);color:#fff}
+</style></head><body>
+<div class="w">
+<div class="hd"><div class="logo">🎓</div><div><h1>طريقي للمعدل 🎯</h1></div><div class="pill"><div id="dy"></div><small id="dt"></small></div><button class="ib" id="th" aria-label="تبديل الوضع الداكن والفاتح" onclick="toggleTheme()"></button></div>
+<div id="tk"></div>
+<main id="v"></main>
+</div>
+<nav>
+<button data-k="g" onclick="go('g')"><span>🏠</span>الرئيسية</button>
+<button data-k="a" onclick="go('a')"><span>🎯</span>الأهداف</button>
+<button data-k="p" onclick="go('p')"><span>⏱️</span>بومودورو</button>
+<button data-k="e" onclick="go('e')"><span>📝</span>الامتحانات</button>
+
+<button data-k="s" onclick="go('s')"><span>📊</span>الإحصائيات</button>
+<button data-k="t" onclick="go('t')"><span>⚙️</span>الضبط</button>
+</nav>
+<div id="m"></div><div id="t"></div>
+<script>
+/* ===== أدوات ===== */
+const $=s=>document.querySelector(s),KEY='tareeqi_v1',pad=n=>String(n).padStart(2,'0');
+const ds=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()),today=()=>ds(new Date());
+const pd=s=>{const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const addD=(s,n)=>{const d=pd(s);d.setDate(d.getDate()+n);return ds(d)};
+const wkStart=s=>addD(s,-((pd(s).getDay()+1)%7)); /* السبت = بداية الأسبوع */
+const fmt=s=>{const[a,b,c]=s.split('-');return(+c)+'/'+(+b)+'/'+a};
+const DAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const fmtMin=m=>Math.floor(m/60)+' ساعة و '+(m%60)+' دقيقة';
+const empty=t=>`<div class="cd" style="text-align:center;color:var(--mu)">${t}</div>`;
+/* ===== البيانات ===== */
+const SUB=[['math','الرياضيات','📐','#3b82f6',5],['bio','الأحياء','🧬','#10b981',5],['chem','الكيمياء','🧪','#f59e0b',5],['phy','الفيزياء','⚛️','#a855f7',5],['eng','الإنجليزي','🔤','#14b8a6',5],['gram','العربي - قواعد','📖','#f43f5e',5],['adab','العربي - أدب','📚','#f97316',5],['isl','الإسلامية','🕌','#6366f1',3]];
+const DEF=()=>({v:1,subjects:SUB.map(([id,n,i,c,g])=>({id,n,i,c,g,off:false})),goals:{},logs:[],sessions:[],exams:[],resetTs:0,set:{study:45,brk:5,long:15,every:4,sound:true,theme:'auto'}});
+const D_RE=/^\d{4}-\d\d-\d\d$/;
+const valid=d=>d&&typeof d==='object'&&Array.isArray(d.subjects)&&Array.isArray(d.logs)&&Array.isArray(d.sessions)&&Array.isArray(d.exams)&&d.set&&typeof d.set==='object'
+&&d.subjects.every(s=>s&&typeof s.id==='string'&&typeof s.n==='string')&&d.logs.every(l=>l&&typeof l.sid==='string'&&typeof l.n==='number'&&D_RE.test(l.date))
+&&d.sessions.every(s=>s&&typeof s.min==='number'&&D_RE.test(s.date))&&d.exams.every(e=>e&&Array.isArray(e.subs)&&D_RE.test(e.date))&&(d.plans==null||(Array.isArray(d.plans)&&d.plans.every(p=>p&&D_RE.test(p.start)&&D_RE.test(p.end)&&p.t&&typeof p.t==='object')));
+const mkPlan=(subs,g,rs)=>{const s=wkStart(today()),t={};subs.forEach(x=>{if(!x.off)t[x.id]=(g&&g[x.id]!=null)?g[x.id]:x.g});return{id:uid(),dur:'w1',start:s,end:addD(s,6),t,ts:Date.now(),rs:rs||0}};
+const norm=d=>{const had=Array.isArray(d.plans);d=Object.assign(DEF(),d);if(!had)d.plans=[mkPlan(d.subjects,d.goals&&d.goals[wkStart(today())],d.resetTs)];d.set=Object.assign(DEF().set,d.set);d.goals=d.goals||{};d.logs.forEach(l=>l.ts=l.ts||0);d.resetTs=d.resetTs||0;return d};
+function load(){try{const r=localStorage.getItem(KEY);if(r){const o=JSON.parse(r);if(valid(o)){if(!localStorage.getItem(KEY+'_z1')){localStorage.setItem(KEY+'_bak0',r);o.logs=[];o.sessions=[];o.exams=[];localStorage.setItem(KEY+'_z1','1');localStorage.setItem(KEY,JSON.stringify(o))}return norm(o)}}else localStorage.setItem(KEY+'_z1','1')}catch(e){}return norm({})}
+function save(){S.u=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){toast('تعذّر الحفظ في هذا المتصفح',1)}syncSoon()}
+let S=load(),tab='g',ET='list',CB=[],OP={s:0,t:0};
+const act=()=>S.subjects.filter(s=>!s.off);
+const sub=id=>S.subjects.find(s=>s.id===id)||{n:'مادة محذوفة',i:'•',c:'#888',g:0};
+/* ===== الأهداف ===== */
+const WS=()=>wkStart(today()),WE=()=>addD(WS(),6);
+function ensureWeek(){const w=WS();if(!S.goals[w]){S.goals[w]={};S.subjects.forEach(s=>S.goals[w][s.id]=s.g)}}
+const tgt=s=>{const p=cur();return(p&&p.t[s.id])||0};
+const DURL={w1:'أسبوع واحد',w2:'أسبوعان',w3:'ثلاثة أسابيع',w4:'أربعة أسابيع',m:'شهر تقويمي'};
+const cur=()=>{const t=today();return S.plans.filter(p=>!p.off&&p.start<=t&&t<=p.end).sort((a,b)=>b.ts-a.ts)[0]};
+const inP=s=>{const p=cur();return !!p&&p.t[s.id]!=null};
+const planLogs=p=>p?S.logs.filter(l=>l.date>=p.start&&l.date<=p.end&&l.ts>=(p.rs||0)):[];
+const curLogs=()=>planLogs(cur());
+function span(d,o){const t=pd(today());if(d==='m')return[ds(new Date(t.getFullYear(),t.getMonth()+o,1)),ds(new Date(t.getFullYear(),t.getMonth()+o+1,0))];const s=addD(wkStart(today()),7*o);return[s,addD(s,7*(+d[1])-1)]}
+const done=sid=>curLogs().filter(l=>l.sid===sid).reduce((a,l)=>a+l.n,0);
+const pct=(d,t)=>t>0?Math.round(d/t*100):null;
+function sum(){let T=0,D=0,X=0,R_=0;act().filter(inP).forEach(s=>{const t=tgt(s),d=done(s.id);T+=t;D+=Math.min(d,t);X+=Math.max(0,d-t);R_+=Math.max(0,t-d)});return{T,D,X,R:R_,A:D+X,p:pct(D+X,T)}}
+function inc(sid){const s=sub(sid),t=tgt(s,WS()),b=done(sid);S.logs.push({id:uid(),sid,n:1,date:today(),ts:Date.now()});save();R();if(t>0&&b<t&&b+1>=t)toast('🎉 ما شاء الله! أكملت هدف '+s.n)}
+function dec(sid){const a=curLogs().filter(l=>l.sid===sid).sort((x,y)=>x.ts-y.ts);if(!a.length)return;const l=a[a.length-1];if(l.n>1)l.n--;else S.logs=S.logs.filter(x=>x!==l);save();R()}
+function setG(sid,v){v=Math.max(0,Math.min(99,parseInt(v)||0));ensureWeek();S.goals[WS()][sid]=v;sub(sid).g=v;save();R()}
+function newWk(){ask('بدء أسبوع جديد','سيبدأ العدّاد من الصفر لجميع المواد. سجلاتك السابقة تبقى محفوظة في الإحصائيات ولا يُحذف شيء.',[['نعم، متأكد',()=>{const p=cur();if(p)p.rs=Date.now();save();R();toast('بدأ أسبوع جديد ✓')},'p'],['إلغاء']])}
+const card=s=>{const t=tgt(s,WS()),d=done(s.id),p=pct(d,t),x=Math.max(0,d-t);
+return `<div class="cd${x?' ex':''}"><div class="sr"><b><i class="dot" style="background:${s.c}"></i>${s.i} ${esc(s.n)}</b>${x?`<span class="bdg">🔥 تفوّق (+${x})</span>`:''}</div>
+<div class="sr"><small>${d} من ${t} محاضرة</small><small>الإنجاز: ${p==null?'—':p+'%'}</small></div>
+<div class="bar"><div class="fill${x?' o':''}" style="width:${p==null?0:Math.min(100,p)}%"></div></div>
+<div class="sr" style="justify-content:flex-end"><div class="ct"><button class="b" onclick="dec('${s.id}')" aria-label="إنقاص">−</button><b>${d}</b><button class="b p" onclick="inc('${s.id}')">+1</button></div></div></div>`};
+function vGoals(){const m=sum(),p=cur();if(!p)return empty('لا يوجد هدف نشط حالياً.<br>أنشئ هدفاً من صفحة «الأهداف» لتبدأ التسجيل.')+'<button class="b p" style="width:100%" onclick="go(\'a\')">🎯 الذهاب إلى الأهداف</button>';
+return `<div class="g2">${[['المستهدف',m.T,''],['المكتمل حتى الآن',m.A,'var(--ac)'],['نسبة الإنجاز',m.p==null?'—':m.p+'%','var(--bl)'],['محاضرات التفوق','🔥 '+m.X,'var(--am)']].map(([a,b,c])=>`<div class="cd st"><small>${a}</small><b style="color:${c}">${b}</b></div>`).join('')}</div>
+<div class="sh"><div><h2>🎯 أهداف الفترة الحالية</h2><small>${DURL[p.dur]} · ${fmt(p.start)} ← ${fmt(p.end)}</small></div><button class="b" onclick="newWk()">↻ أسبوع جديد</button></div>
+${act().filter(inP).map(card).join('')||empty('لا توجد مواد في هذا الهدف.')}`}
+/* ===== بومودورو ===== */
+let T={mode:'study',run:false,end:0,left:S.set.study*60000,sid:'',cnt:0};
+const tdur=()=>(T.mode==='study'?S.set.study:T.mode==='brk'?S.set.brk:(S.set.long||S.set.brk))*60000;
+const left=()=>T.run?Math.max(0,T.end-Date.now()):T.left;
+function setMode(k){T.mode=k;T.run=false;T.left=tdur();R()}
+function tToggle(){if(T.run){T.left=Math.max(0,T.end-Date.now());T.run=false}else{T.end=Date.now()+T.left;T.run=true}paint()}
+function tReset(){T.run=false;T.left=tdur();paint()}
+function tSave(){const m=Math.floor((tdur()-T.left)/60000);if(m<1)return;S.sessions.push({id:uid(),sid:T.sid,min:m,date:today(),ts:Date.now(),full:false});save();T.left=tdur();R();toast('تم حفظ '+m+' دقيقة ✓')}
+function finish(){const st=T.mode==='study';T.run=false;
+if(st){S.sessions.push({id:uid(),sid:T.sid,min:S.set.study,date:today(),ts:Date.now(),full:true});T.cnt++;save()}
+T.mode=st?((S.set.long>0&&S.set.every>0&&T.cnt%S.set.every===0)?'long':'brk'):'study';T.left=tdur();R();beep();
+modal(`<h3>${st?'✅ أحسنت! انتهت جلسة الدراسة':'⏰ انتهت الاستراحة'}</h3><p>${st?'خذ استراحة قصيرة، وتم حفظ الجلسة في سجل اليوم.':'جاهز لجلسة جديدة متى شئت.'}</p><div class="ba"><button class="b p" onclick="closeM()">حسناً</button></div>`)}
+function beep(){if(!S.set.sound)return;try{const c=new(window.AudioContext||window.webkitAudioContext)();[0,.25,.5].forEach(t=>{const o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=880;g.gain.setValueAtTime(.2,c.currentTime+t);o.start(c.currentTime+t);o.stop(c.currentTime+t+.15)})}catch(e){}}
+function paint(){const e=$('#tt');if(!e)return;const l=left(),d=tdur(),m=Math.ceil(l/1000),g=$('#rg');
+e.textContent=pad(Math.floor(m/60))+':'+pad(m%60);g.style.strokeDashoffset=339.3*(1-l/d);g.style.stroke=T.mode==='study'?'var(--ac)':'var(--bl)';
+$('#ts').textContent=T.run?'جارٍ العدّ…':l<d?'متوقف مؤقتاً':'جاهز للبدء';$('#tb').textContent=T.run?'⏸ إيقاف مؤقت':l<d?'▶ استئناف':'▶ ابدأ';
+const el=Math.floor((d-l)/60000),h=(T.mode==='study'&&!T.run&&el>=1)?`<button class="b" onclick="tSave()">💾 حفظ الوقت الفعلي (${el} د)</button>`:'',x=$('#tx');if(x.dataset.h!==h){x.dataset.h=h;x.innerHTML=h}}
+function saveSet(){const n=(k,d)=>Math.max(0,Math.min(180,parseInt($(k).value)||d));S.set.study=Math.max(1,n('#p1',45));S.set.brk=Math.max(1,n('#p2',5));S.set.long=n('#p3',15);S.set.every=n('#p4',4);S.set.sound=$('#p5').checked;save();if(!T.run)T.left=tdur();R();toast('تم حفظ الإعدادات ✓')}
+function delSes(id){S.sessions=S.sessions.filter(s=>s.id!==id);save();R()}
+const sesToday=()=>S.sessions.filter(s=>s.date===today()).sort((a,b)=>b.ts-a.ts);
+function vPomo(){const st=S.set,td=sesToday();
+return `<div class="cd"><div class="tabs">${[['study','🎯 دراسة'],['brk','☕ استراحة'],['long','🛌 طويلة']].map(([k,l])=>`<button class="${T.mode===k?'on':''}" onclick="setMode('${k}')">${l}</button>`).join('')}</div>
+<select onchange="T.sid=this.value" aria-label="المادة"><option value="">عام (بدون مادة)</option>${act().map(s=>`<option value="${s.id}"${T.sid===s.id?' selected':''}>${esc(s.n)}</option>`).join('')}</select>
+<div class="ring"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" class="tr"/><circle id="rg" cx="60" cy="60" r="54" class="pg" transform="rotate(-90 60 60)"/></svg><div class="tm"><b id="tt"></b><small id="ts"></small></div></div>
+<div class="ctl"><button class="b" onclick="tReset()" aria-label="إعادة ضبط">↺</button><button id="tb" class="b p big" onclick="tToggle()"></button></div>
+<div class="ctl" id="tx"></div>
+<details><summary>⚙ تخصيص أوقات البومودورو</summary><div class="g2"><div><label>الدراسة (دقائق)</label><input id="p1" type="number" min="1" value="${st.study}"></div><div><label>الاستراحة (دقائق)</label><input id="p2" type="number" min="1" value="${st.brk}"></div><div><label>الاستراحة الطويلة (0 = تعطيل)</label><input id="p3" type="number" min="0" value="${st.long}"></div><div><label>بعد كم جلسة</label><input id="p4" type="number" min="1" value="${st.every}"></div></div>
+<label class="gl" style="margin:10px 0"><input id="p5" type="checkbox" style="width:20px" ${st.sound?'checked':''}> صوت التنبيه عند الانتهاء</label><button class="b p" style="width:100%" onclick="saveSet()">حفظ الإعدادات</button></details></div>
+<div class="cd"><div class="sh"><b>🕘 سجل جلسات اليوم</b><small>${td.length} جلسة · ${td.reduce((a,s)=>a+s.min,0)} د</small></div>
+${td.map(s=>`<div class="sr"><span>${s.sid?sub(s.sid).i+' '+esc(sub(s.sid).n):'عام'} — ${s.min} د${s.full?'':' (جزئية)'}</span><button class="b" onclick="delSes('${s.id}')" aria-label="حذف">✕</button></div>`).join('')||'<small>لم تكمل أي جلسة بومودورو بعد.</small>'}</div>`}
+/* ===== الامتحانات ===== */
+const TY={wed:'الأربعاء (قصير)',fri:'الجمعة (تراكمي)',cus:'امتحان مخصص'};
+const pc=e=>(e.sc!==''&&e.tot>0)?Math.round(e.sc/e.tot*100):null;
+function nextEx(){const n=new Date(),r=[3,5].map(w=>[(w-n.getDay()+7)%7,w]).sort((a,b)=>a[0]-b[0]),[d,w]=r[0];return{d,w,dt:ds(new Date(n.getFullYear(),n.getMonth(),n.getDate()+d))}}
+const exCard=e=>{const p=pc(e);return `<div class="cd"><div class="sr"><b>${e.type==='cus'&&e.title?esc(e.title):TY[e.type]||''}</b>${p!=null?`<span class="bdg" style="background:var(--ac)">${e.sc}/${e.tot} (${p}%)</span>`:''}</div>
+<small>${DAYS[pd(e.date).getDay()]} ${fmt(e.date)}${e.q?' · '+e.q+' سؤال':''}${e.type==='cus'?' · مخصص':''}</small><div>${e.subs.map(i=>sub(i).i+' '+esc(sub(i).n)).join('، ')}</div>
+${e.topics?`<small>📌 ${esc(e.topics)}</small>`:''}${e.err?`<div class="nt">⚠️ ${esc(e.err)}</div>`:''}${e.note?`<div class="nt">📝 ${esc(e.note)}</div>`:''}
+<div class="ba"><button class="b" onclick="exForm('${e.id}')">تعديل</button><button class="b" onclick="exDel('${e.id}')">حذف</button></div></div>`};
+function vExams(){const nx=nextEx(),rel=nx.d?(nx.d===1?'غداً':'بعد '+nx.d+' أيام'):'اليوم';
+let h=`<div class="cd"><small>الامتحان القادم</small><div><b>${nx.w===3?'امتحان الأربعاء (قصير)':'امتحان الجمعة (تراكمي)'}</b> — ${DAYS[nx.w]} ${fmt(nx.dt)} (${rel})</div></div>
+<div class="sh"><div class="tabs" style="margin:0;flex:1">${[['list','📋 الامتحانات'],['log','🏅 سجل الدرجات']].map(([k,l])=>`<button class="${ET===k?'on':''}" onclick="ET='${k}';R()">${l}</button>`).join('')}</div><button class="b p" onclick="exForm()">＋ تسجيل</button></div>`;
+const ex=[...S.exams].sort((a,b)=>b.date.localeCompare(a.date));
+if(!ex.length)return h+empty('لم تسجّل أي امتحان بعد. اضغط «تسجيل» لإضافة أول امتحان.');
+if(ET==='log'){const gs=ex.filter(e=>pc(e)!=null),avg=l=>l.length?Math.round(l.reduce((a,e)=>a+pc(e),0)/l.length)+'%':'—';
+return h+`<div class="g2">${Object.entries(TY).map(([k,v])=>`<div class="cd st"><small>معدل ${v}</small><b>${avg(gs.filter(e=>e.type===k))}</b></div>`).join('')}<div class="cd st"><small>المعدل العام</small><b>${avg(gs)}</b></div></div>
+<div class="cd"><b>تطور الدرجات (الأحدث يميناً)</b>${gs.length?`<div class="chart">${gs.slice(0,15).reverse().map(e=>`<div class="cl"><div class="cb"><i style="height:${pc(e)}%;background:var(--ac)"></i></div><small>${pc(e)}</small></div>`).join('')}</div>`:'<p><small>أضف امتحاناً بدرجته لتظهر الرسوم.</small></p>'}</div>`}
+return h+ex.map(exCard).join('')}
+function exForm(id){const e=S.exams.find(x=>x.id===id)||{type:'wed',date:today(),subs:[],topics:'',q:'',sc:'',tot:'',err:'',note:'',title:''};
+modal(`<div class="mh"><h3>${id?'تعديل امتحان':'تسجيل امتحان'}</h3><button class="b" onclick="closeM()" aria-label="إغلاق">✕</button></div>
+<label>نوع الامتحان</label><select id="x_t" onchange="$('#x_ti').style.display=this.value==='cus'?'block':'none'">${Object.entries(TY).map(([k,v])=>`<option value="${k}"${e.type===k?' selected':''}>${v}</option>`).join('')}</select>
+<div id="x_ti" style="display:${e.type==='cus'?'block':'none'}"><label>عنوان الامتحان</label><input id="x_n" value="${esc(e.title)}" placeholder="مثلاً: فاينل الفصل الأول"></div>
+<label>التاريخ</label><input id="x_d" type="date" value="${e.date}">
+<label>المواد</label>${S.subjects.filter(s=>!s.off||e.subs.includes(s.id)).map(s=>`<label class="ck"><input type="checkbox" value="${s.id}"${e.subs.includes(s.id)?' checked':''}> ${s.i} ${esc(s.n)}</label>`).join('')}
+<label>المواضيع / الفصول</label><input id="x_p" value="${esc(e.topics)}" placeholder="مثلاً: فصل 2-3 فيزياء">
+<label>عدد الأسئلة</label><input id="x_q" type="number" inputmode="numeric" min="0" value="${e.q}">
+<label>الدرجة / الكلية</label><input id="x_s" type="number" inputmode="decimal" min="0" step="any" value="${e.sc}" placeholder="المحرزة"><input id="x_o" type="number" inputmode="decimal" min="0" step="any" value="${e.tot}" placeholder="الكلية" style="margin-top:8px">
+<label>الأخطاء والمواضيع الضعيفة</label><textarea id="x_e" rows="3">${esc(e.err)}</textarea>
+<label>ملاحظات المراجعة</label><textarea id="x_m" rows="3">${esc(e.note)}</textarea>
+<div class="ba"><button class="b p" onclick="exSave('${id||''}')">حفظ الامتحان</button></div>`)}
+function exSave(id){const v=k=>$('#'+k).value.trim(),subs=[...document.querySelectorAll('#m .ck input:checked')].map(i=>i.value);
+if(!subs.length)return toast('اختر مادة واحدة على الأقل',1);if(!v('x_d'))return toast('اختر تاريخ الامتحان',1);
+const sc=v('x_s'),tot=v('x_o');if((sc!==''||tot!=='')&&(sc===''||tot===''||+tot<=0||+sc<0||+sc>+tot))return toast('تحقق من الدرجة المحرزة والكلية',1);
+const e={id:id||uid(),type:v('x_t'),title:v('x_n'),date:v('x_d'),subs,topics:v('x_p'),q:v('x_q'),sc:sc===''?'':+sc,tot:tot===''?'':+tot,err:v('x_e'),note:v('x_m')};
+const i=S.exams.findIndex(x=>x.id===id);if(i>=0)S.exams[i]=e;else S.exams.push(e);save();closeM();R();toast('تم حفظ الامتحان ✓')}
+function exDel(id){ask('حذف الامتحان','هل تريد حذف هذا الامتحان من السجل؟',[['حذف',()=>{S.exams=S.exams.filter(x=>x.id!==id);save();R()},'d'],['إلغاء']])}
+/* ===== الإحصائيات ===== */
+function vStats(){const m=sum(),a=act().filter(inP),ws=WS(),mx=Math.max(1,...a.map(s=>Math.max(tgt(s,ws),done(s.id)))),ym=Math.max(5,Math.ceil(mx/5)*5);
+const wm=S.sessions.filter(s=>s.date>=ws&&s.date<=WE()).reduce((x,s)=>x+s.min,0),tm=sesToday().reduce((x,s)=>x+s.min,0);
+const W={};S.logs.forEach(l=>{const w=wkStart(l.date);W[w]=(W[w]||0)+l.n});const wk=Object.keys(W).sort().reverse().slice(0,8),best=Math.max(0,...Object.values(W));
+return `<div class="cd"><h3>📊 نسبة الإنجاز والهدف حسب المادة</h3><div class="lg"><span><i style="background:var(--bd)"></i>المحاضرات المستهدفة</span><span><i style="background:var(--ac)"></i>المحاضرات المكتملة</span></div><div class="ch2"><div class="ya">${Array.from({length:11},(_,i)=>`<span>${(ym-i*ym/10).toFixed(1)}</span>`).join('')}</div><div class="pl">${a.map(s=>{const t=tgt(s,ws),d=done(s.id);return `<div class="cl2"><div class="bw"><i style="height:${t/ym*100}%;background:var(--bd)"></i><i style="height:${d/ym*100}%;background:${d>t?'var(--am)':'var(--ac)'}"></i><span class="lb">${esc(s.n)}</span></div></div>`}).join('')}</div></div></div>
+<div class="cd"><h3>🏆 الملخص الأسبوعي</h3>
+<div class="sr"><span>المواد المكتملة أهدافها</span><b>${a.filter(s=>tgt(s,ws)>0&&done(s.id)>=tgt(s,ws)).length} / ${a.length}</b></div>
+<div class="sr"><span>المحاضرات المتبقية</span><b>${m.R}</b></div>
+<div class="sr"><span style="color:var(--am)">🔥 محاضرات إضافية فوق الهدف</span><b style="color:var(--am)">${m.X}</b></div>
+<div class="sr"><span>وقت الدراسة اليوم</span><b>${fmtMin(tm)}</b></div>
+<div class="sr"><span>وقت الدراسة هذا الأسبوع</span><b>${fmtMin(wm)}</b></div></div>
+<div class="cd"><h3>🗓️ الأسابيع السابقة</h3><small>مجموع المحاضرات المسجلة في كل أسبوع (سبت – جمعة). الأيام بلا تسجيل لا تعني أنك لم تدرس.</small>
+${wk.map(w=>`<div class="sr"><span>${fmt(w)} ← ${fmt(addD(w,6))}</span><b>${W[w]} محاضرة ${W[w]===best&&best>0?'🏆':''}</b></div>`).join('')||'<p><small>ستظهر الأسابيع هنا بعد تسجيل أول محاضرة.</small></p>'}
+<div class="sr"><span>إجمالي المحاضرات المسجلة</span><b>${S.logs.reduce((x,l)=>x+l.n,0)}</b></div><div class="sr"><span>أيام فيها تسجيل</span><b>${new Set(S.logs.map(l=>l.date)).size}</b></div></div>`}
+/* ===== الضبط والنسخ الاحتياطي ===== */
+const effTheme=()=>S.set.theme==='auto'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):S.set.theme;
+function applyTheme(){const t=S.set.theme;if(t==='auto')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme',t);const b=$('#th');if(b)b.textContent=effTheme()==='dark'?'☀️':'🌙'}
+function toggleTheme(){S.set.theme=effTheme()==='dark'?'light':'dark';save();applyTheme();if(tab==='t')R()}
+function vSet(){return `<div class="cd"><h3>🎨 المظهر</h3><select onchange="S.set.theme=this.value;save();applyTheme()">${[['auto','تلقائي (حسب الجهاز)'],['dark','داكن'],['light','فاتح']].map(([k,l])=>`<option value="${k}"${S.set.theme===k?' selected':''}>${l}</option>`).join('')}</select></div>
+<div class="cd"><button class="b" style="width:100%;display:flex;justify-content:space-between" onclick="OP.s=!OP.s;R()"><b>📚 المواد الدراسية</b><span>${OP.s?'▲ إخفاء':'▼ إظهار'}</span></button>${OP.s?`<div class="sh" style="margin-top:12px"><small>تعديل المواد أو تعطيلها</small><button class="b p" onclick="subForm()">＋ مادة</button></div>`:''}
+${OP.s?S.subjects.map(s=>`<div class="sr" style="opacity:${s.off?.55:1}"><b><i class="dot" style="background:${s.c}"></i>${s.i} ${esc(s.n)}${s.off?' (معطّلة)':''}</b><span class="ct"><button class="b" onclick="subForm('${s.id}')" aria-label="تعديل">✎</button><button class="b" onclick="subTog('${s.id}')">${s.off?'تفعيل':'تعطيل'}</button><button class="b" onclick="subDel('${s.id}')" aria-label="حذف">🗑</button></span></div>`).join(''):''}</div>
+<div class="cd"><h3>💾 البيانات والنسخ الاحتياطي</h3>${syncUI()}<p><small>${SYNC.col?'بياناتك تُحفظ تلقائياً على حسابك في Google (Drive) وعلى هذا الجهاز، وتظهر على أي جهاز تفعّل فيه المزامنة بنفس الرابط. التصدير نسخة احتياطية إضافية فقط.':'بياناتك محفوظة على هذا المتصفح وهذا الجهاز فقط. مسح بيانات المتصفح أو استخدام متصفح آخر يتطلب استعادة النسخة الاحتياطية، فصدّر نسخة بين فترة وأخرى.'}</small></p>
+<div class="ba"><button class="b" onclick="expo()">⬆ تصدير</button><button class="b" onclick="impo()">⬇ استيراد</button></div>
+<button class="b d" style="width:100%;margin-top:12px" onclick="rstAll()">تصفير كافة البيانات</button></div>`}
+function subForm(id){const s=S.subjects.find(x=>x.id===id)||{n:'',i:'📘',c:'#3b82f6'};
+modal(`<div class="mh"><h3>${id?'تعديل المادة':'مادة جديدة'}</h3><button class="b" onclick="closeM()" aria-label="إغلاق">✕</button></div><label>اسم المادة</label><input id="s_n" value="${esc(s.n)}"><label>الأيقونة (إيموجي)</label><input id="s_i" value="${esc(s.i)}" maxlength="4"><label>اللون</label><input id="s_c" type="color" value="${s.c}" style="height:44px"><div class="ba"><button class="b p" onclick="subSave('${id||''}')">حفظ</button></div>`)}
+function subSave(id){const n=$('#s_n').value.trim();if(!n)return toast('اكتب اسم المادة',1);const i=$('#s_i').value.trim()||'📘',c=$('#s_c').value;
+const s=S.subjects.find(x=>x.id===id);if(s){s.n=n;s.i=i;s.c=c}else S.subjects.push({id:'s'+uid(),n,i,c,g:5,off:false});save();closeM();R();toast('تم الحفظ ✓')}
+function subTog(id){const s=sub(id);s.off=!s.off;save();R()}
+function subDel(id){const s=sub(id),n=S.logs.filter(l=>l.sid===id).length+S.sessions.filter(l=>l.sid===id).length+S.exams.filter(e=>e.subs.includes(id)).length;
+if(n)ask('لا يمكن حذف مادة لها سجلات',`لـ «${esc(s.n)}» ${n} سجلاً. حفاظاً على تاريخك لا تُحذف السجلات؛ يمكنك تعطيل المادة فتختفي من الأهداف وتبقى سجلاتها كاملة.`,[['تعطيل المادة',()=>{s.off=true;save();R()},'p'],['إلغاء']]);
+else ask('حذف المادة',`هل تريد حذف «${esc(s.n)}» نهائياً؟ لا توجد لها أي سجلات.`,[['حذف',()=>{S.subjects=S.subjects.filter(x=>x.id!==id);S.plans.forEach(p=>delete p.t[id]);save();R()},'d'],['إلغاء']])}
+function expo(){const j=JSON.stringify({app:'tareeqi',v:1,at:new Date().toISOString(),data:S});
+modal(`<div class="mh"><h3>تصدير البيانات</h3><button class="b" onclick="closeM()" aria-label="إغلاق">✕</button></div><p><small>انسخ النص واحفظه في مكان آمن (ملاحظات أو رسالة لنفسك)، أو جرّب تنزيله كملف.</small></p><textarea id="ex_j" rows="7" readonly onclick="this.select()">${esc(j)}</textarea><div class="ba"><button class="b p" onclick="cpJ()">نسخ</button><button class="b" onclick="dlJ()">تنزيل ملف</button></div>`)}
+function cpJ(){const t=$('#ex_j');t.select();const ok=()=>toast('تم النسخ ✓');try{navigator.clipboard.writeText(t.value).then(ok,()=>{document.execCommand('copy');ok()})}catch(e){document.execCommand('copy');ok()}}
+function dlJ(){try{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([$('#ex_j').value],{type:'application/json'}));a.download='tareeqi-backup-'+today()+'.json';a.click();toast('طُلب التنزيل — إن لم يبدأ فاستخدم «نسخ»')}catch(e){toast('التنزيل غير متاح هنا، استخدم «نسخ»',1)}}
+function impo(){modal(`<div class="mh"><h3>استيراد البيانات</h3><button class="b" onclick="closeM()" aria-label="إغلاق">✕</button></div><p><small>الصق نص النسخة الاحتياطية أو اختر ملف JSON. سيتم فحصه أولاً قبل أي تغيير.</small></p><textarea id="im_j" rows="7" placeholder="الصق النسخة الاحتياطية هنا"></textarea><input type="file" accept=".json,application/json" onchange="impFile(this.files[0])" style="margin-top:8px"><div id="ie" style="color:var(--rd);font-size:13px;margin-top:6px"></div><div class="ba"><button class="b p" onclick="impChk()">فحص الملف</button></div>`)}
+function impFile(f){if(!f)return;const r=new FileReader();r.onload=()=>{$('#im_j').value=r.result};r.readAsText(f)}
+function impChk(){let o;try{o=JSON.parse($('#im_j').value)}catch(e){$('#ie').textContent='الملف غير صالح: ليس بصيغة JSON سليمة. لم يتغير شيء.';return}
+const d=o&&o.data;if(!(o&&o.app==='tareeqi'&&valid(d))){$('#ie').textContent='الملف لا يطابق صيغة هذا التطبيق. لم يتغير شيء.';return}
+ask('استيراد البيانات',`سيتم استيراد: ${d.subjects.length} مادة، ${d.logs.length} سجل محاضرات، ${d.sessions.length} جلسة، ${d.exams.length} امتحان. ستُستبدل بياناتك الحالية، وتُحفظ نسخة احتياطية تلقائية منها.`,[['استبدال واستيراد',()=>{try{localStorage.setItem(KEY+'_bak',JSON.stringify(S))}catch(e){}S=norm(d);save();applyTheme();T.left=tdur();R();toast('تم الاستيراد ✓')},'p'],['إلغاء']])}
+function rstAll(){ask('تصفير كافة البيانات','سيتم حذف جميع المواد والمحاضرات والامتحانات والجلسات نهائياً. يُنصح بتصدير نسخة احتياطية أولاً.',[['حذف كل شيء',()=>{S=norm({});save();applyTheme();T.left=tdur();R();toast('تمت إعادة الضبط')},'d'],['إلغاء']])}
+/* ===== الواجهة ===== */
+function modal(h){$('#m').innerHTML=`<div class="ov" onclick="if(event.target===this)closeM()"><div class="mb">${h}</div></div>`}
+function closeM(){$('#m').innerHTML=''}
+function ask(t,msg,btns){CB=btns.map(b=>b[1]);modal(`<h3>${t}</h3><p>${msg}</p><div class="ba">${btns.map((b,i)=>`<button class="b ${b[2]||''}" onclick="closeM();CB[${i}]&&CB[${i}]()">${b[0]}</button>`).join('')}</div>`)}
+function toast(m,e){const t=$('#t');t.textContent=m;t.className='show'+(e?' er':'');clearTimeout(toast.h);toast.h=setTimeout(()=>t.className='',e?3500:2600)}
+function vPlans(){const t=today(),ps=[...S.plans].sort((a,b)=>b.start.localeCompare(a.start)||b.ts-a.ts);
+return `<div class="sh"><div><h2>🎯 الأهداف</h2><small>حدّد المدة وعدد المحاضرات لكل مادة</small></div><button class="b p" onclick="planForm()">＋ هدف جديد</button></div>`+(ps.map(p=>{
+const L=planLogs(p),rows=Object.keys(p.t).map(id=>({s:sub(id),t:p.t[id],d:L.filter(l=>l.sid===id).reduce((a,l)=>a+l.n,0)})),T=rows.reduce((a,r)=>a+r.t,0),D=rows.reduce((a,r)=>a+Math.min(r.d,r.t),0),X=rows.reduce((a,r)=>a+Math.max(0,r.d-r.t),0),rm=T-D,st=p.off?'معطّل':p.start>t?'قادم':p.end<t?(rm?'غير مكتمل':'مكتمل'):'نشط';
+return `<div class="cd${st==='نشط'?' ex':''}"${p.off?' style="opacity:.6"':''}><div class="sr"><b>${DURL[p.dur]}</b><span class="bdg" style="background:${st==='قادم'?'var(--bl)':st==='غير مكتمل'||st==='معطّل'?'var(--mu)':'var(--ac)'}">${st}</span></div><small>${fmt(p.start)} ← ${fmt(p.end)}</small>
+${rows.map(r=>`<div class="sr"><span>${r.s.i} ${esc(r.s.n)}</span><span>${r.d} / ${r.t}${r.d>r.t?` <b style="color:var(--am)">(+${r.d-r.t})</b>`:''}</span></div>`).join('')}
+<div class="sr"><b>المنجز ${D} من ${T}</b><small>المتبقي ${rm}${X?' · إضافي '+X:''}</small></div>
+<div class="ba"><button class="b" onclick="planForm('${p.id}')">تعديل</button>${(p.end<t&&rm)?`<button class="b" onclick="planForm('','${p.id}')">هدف جديد من المتبقي</button>`:''}<button class="b" onclick="planDel('${p.id}')">حذف</button><button class="b" onclick="planTog('${p.id}')">${p.off?'تفعيل':'تعطيل'}</button></div></div>`}).join('')||empty('لم تنشئ أي هدف بعد. اضغط «هدف جديد» لتحديد المدة والمواد.'))}
+function planForm(id,from){const old=S.plans.find(x=>x.id===(id||from)),L=(from&&old)?planLogs(old):[],ss=(id&&old)?S.subjects.filter(s=>!s.off||old.t[s.id]!=null):act();
+const v=s=>{if(id)return old.t[s.id]!=null?old.t[s.id]:'';if(old){const r=(old.t[s.id]||0)-L.filter(l=>l.sid===s.id).reduce((a,l)=>a+l.n,0);return r>0?r:''}return s.g};
+modal(`<div class="mh"><h3>${id?'تعديل الهدف':from?'هدف جديد من المتبقي':'هدف جديد'}</h3><button class="b" onclick="closeM()" aria-label="إغلاق">✕</button></div>
+${id?'':`<label>مدة الهدف</label><select id="pl_d">${Object.entries(DURL).map(([k,l])=>`<option value="${k}">${l}</option>`).join('')}</select><label>يبدأ من</label><select id="pl_o"><option value="0">الفترة الحالية (هذا الأسبوع / هذا الشهر)</option><option value="1">الفترة القادمة</option></select>`}
+<label>عدد المحاضرات لكل مادة (اترك الفارغ لتجاهل المادة)</label>
+${ss.map(s=>`<div class="sr"><span>${s.i} ${esc(s.n)}</span><input class="pn" data-id="${s.id}" type="number" inputmode="numeric" min="0" max="999" value="${v(s)}" style="width:84px;text-align:center"></div>`).join('')}
+<div class="ba"><button class="b p" onclick="planSave('${id||''}')">حفظ الهدف</button></div>`)}
+function planSave(id){const t={};document.querySelectorAll('#m .pn').forEach(i=>{if(i.value!==''&&+i.value>=0)t[i.dataset.id]=Math.floor(+i.value)});
+if(!Object.keys(t).length)return toast('حدّد عدد المحاضرات لمادة واحدة على الأقل',1);
+const p=S.plans.find(x=>x.id===id);if(p)p.t=t;else{const d=$('#pl_d').value,[a,b]=span(d,+$('#pl_o').value);S.plans.push({id:uid(),dur:d,start:a,end:b,t,ts:Date.now(),rs:0})}
+save();closeM();R();toast('تم حفظ الهدف ✓')}
+function planTog(id){const p=S.plans.find(x=>x.id===id);if(!p)return;p.off=!p.off;let m='';if(!p.off){const o=S.plans.filter(x=>x!==p&&!x.off&&x.start<=p.end&&p.start<=x.end);o.forEach(x=>x.off=true);if(o.length)m=' (وتم تعطيل '+o.length+' هدف متداخل معه)'}save();R();toast((p.off?'تم تعطيل الهدف':'تم تفعيل الهدف')+m)}
+function planDel(id){ask('حذف الهدف','سيُحذف هذا الهدف فقط. سجلات المحاضرات التي أنجزتها تبقى محفوظة ولا تتأثر.',[['حذف',()=>{S.plans=S.plans.filter(x=>x.id!==id);save();R()},'d'],['إلغاء']])}
+let ST='st',LD=today(),YL=40;
+const hm=ts=>{const d=new Date(ts);return pad(d.getHours())+':'+pad(d.getMinutes())};
+const gp=ms=>{const m=Math.round(ms/60000);return m<1?'أقل من دقيقة':m<60?m+' د':Math.floor(m/60)+' س'+(m%60?' و '+(m%60)+' د':'')};
+function jInfo(){const L=[...S.logs].sort((a,b)=>a.date.localeCompare(b.date)||a.ts-b.ts),M={};let dt='',run=0,pr=null;L.forEach(l=>{if(l.date!==dt){dt=l.date;run=0;pr=null}const f=run+1;run+=l.n;M[l.id]={f,e:run,gap:(pr&&!pr.man&&!l.man)?l.ts-pr.ts:null};pr=l});return{L,M}}
+function vJour(){const{L,M}=jInfo(),rv=[...L].reverse().slice(0,YL);
+let h=`<div class="sh"><div><h2>يومياتي</h2><small>كل محاضرة تسجلها تظهر هنا بوقتها ورقمها والمدة منذ السابقة</small></div><button class="b p" onclick="logForm()">＋ محاضرة</button></div>`;
+if(!L.length)return h+empty('لا توجد محاضرات مسجلة بعد. اضغط +1 في الرئيسية أو «＋ محاضرة».');
+let last='';
+rv.forEach(l=>{if(l.date!==last){last=l.date;const dn=L.filter(x=>x.date===l.date).reduce((a,x)=>a+x.n,0);h+=`<div class="sh"><b>${DAYS[pd(l.date).getDay()]} ${fmt(l.date)}</b><small>${dn} محاضرة</small></div>`}
+const m=M[l.id],s=sub(l.sid);
+h+=`<div class="cd"><div class="sr"><b>${s.i} ${esc(s.n)}${l.t?' — '+esc(l.t):''}</b><span class="bdg" style="background:var(--ac)">${l.n>1?'المحاضرات '+m.f+'–'+m.e:'المحاضرة '+m.f}</span></div>
+<small>${l.man?'أضيفت يدوياً':'🕐 '+hm(l.ts)}${l.n>1?' · '+l.n+' محاضرات':''}${m.gap!=null?' · بعد '+gp(m.gap)+' من السابقة':(!l.man&&m.f===1?' · أول محاضرة في اليوم':'')}</small>
+<div class="ba"><button class="b" onclick="logForm('${l.id}')">تعديل</button><button class="b" onclick="logDel('${l.id}')">حذف</button></div></div>`});
+if(L.length>YL)h+=`<button class="b" style="width:100%" onclick="YL+=40;R()">عرض المزيد</button>`;return h}
+function logForm(id){const l=S.logs.find(x=>x.id===id)||{sid:(act()[0]||{}).id,n:1,date:(tab==='s'&&ST==='l')?LD:today(),t:''};
+modal(`<div class="mh"><h3>${id?'تعديل محاضرة':'إضافة محاضرة'}</h3><button class="b" onclick="closeM()" aria-label="إغلاق">✕</button></div>
+<label>المادة</label><select id="lg_s">${S.subjects.filter(s=>!s.off||s.id===l.sid).map(s=>`<option value="${s.id}"${s.id===l.sid?' selected':''}>${esc(s.n)}</option>`).join('')}</select>
+<label>اسم المحاضرة أو الموضوع (اختياري)</label><input id="lg_t" value="${esc(l.t||'')}">
+<label>عدد المحاضرات</label><input id="lg_n" type="number" inputmode="numeric" min="1" max="50" value="${l.n}">
+<label>التاريخ</label><input id="lg_d" type="date" value="${l.date}">
+<div class="ba"><button class="b p" onclick="logSave('${id||''}')">حفظ</button></div>`)}
+function logSave(id){const sid=$('#lg_s').value,n=Math.floor(+$('#lg_n').value),d=$('#lg_d').value,t=$('#lg_t').value.trim();
+if(!sid)return toast('أضف مادة أولاً من الضبط',1);if(!(n>=1&&n<=50))return toast('عدد المحاضرات من 1 إلى 50',1);if(!d)return toast('اختر التاريخ',1);
+const l=S.logs.find(x=>x.id===id);if(l){if(d!==l.date)l.man=true;Object.assign(l,{sid,n,date:d,t})}else S.logs.push({id:uid(),sid,n,date:d,t,ts:Date.now(),man:true});
+save();closeM();R();toast('تم الحفظ ✓')}
+function logDel(id){ask('حذف المحاضرة','هل تريد حذف هذا السجل؟ ستتحدث الأرقام والإحصائيات تلقائياً.',[['حذف',()=>{S.logs=S.logs.filter(x=>x.id!==id);save();R()},'d'],['إلغاء']])}
+function vDay(){const d=LD,L=S.logs.filter(l=>l.date===d).sort((a,b)=>a.ts-b.ts),ss=S.sessions.filter(s=>s.date===d),ex=S.exams.filter(e=>e.date===d),mins=ss.reduce((a,s)=>a+s.min,0),n=L.reduce((a,l)=>a+l.n,0);
+return `<div class="sr" style="margin-bottom:12px"><button class="b" onclick="LD=addD(LD,-1);R()" aria-label="اليوم السابق">→</button><input type="date" value="${d}" onchange="LD=this.value||today();R()" style="flex:1;text-align:center"><button class="b" onclick="LD=addD(LD,1);R()" aria-label="اليوم التالي">←</button></div>
+<div class="cd"><h3>ملخص ${DAYS[pd(d).getDay()]} ${fmt(d)}</h3><div class="sr"><span>محاضرات</span><b>${n}</b></div><div class="sr"><span>وقت الدراسة المسجل</span><b>${mins} د</b></div><div class="sr"><span>جلسات المؤقت</span><b>${ss.length}</b></div></div>
+<div class="cd"><h3>المحاضرات</h3>${L.map(l=>`<div class="sr"><span>${sub(l.sid).i} ${esc(sub(l.sid).n)}${l.t?' - '+esc(l.t):''}</span><b>(${l.n})</b></div>`).join('')||'<small>لا يوجد</small>'}</div>
+<div class="cd"><h3>جلسات المؤقت</h3>${ss.map(s=>`<div class="sr"><span>${s.sid?sub(s.sid).i+' '+esc(sub(s.sid).n):'عام'}</span><b>${s.min} د${s.full?'':' (جزئية)'}</b></div>`).join('')||'<small>لا يوجد</small>'}</div>
+<div class="cd"><h3>الامتحانات</h3>${ex.map(e=>`<div class="sr"><span>${e.type==='cus'&&e.title?esc(e.title):TY[e.type]||''}</span><b>${pc(e)!=null?e.sc+'/'+e.tot:''}</b></div>`).join('')||'<small>لا يوجد</small>'}</div>
+<button class="b" style="width:100%" onclick="LD=today();R()">الذهاب إلى اليوم</button>`}
+function vStatsP(){const tb=`<div class="tabs">${[['st','📊 الإحصائيات'],['y','📝 يومياتي'],['l','📅 السجل']].map(([k,l])=>`<button class="${ST===k?'on':''}" onclick="ST='${k}';R()">${l}</button>`).join('')}</div>`;return tb+(ST==='y'?vJour():ST==='l'?vDay():vStats())}
+const V={g:vGoals,a:vPlans,p:vPomo,e:vExams,s:vStatsP,t:vSet};
+function R(){ensureWeek();$('#v').innerHTML=V[tab]();document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.k===tab));$('#dy').textContent='اليوم: '+DAYS[new Date().getDay()];$('#dt').textContent=fmt(today());if(tab==='p')paint()}
+function go(k){tab=k;window.scrollTo(0,0);R()}
+const MSG=['الالتزام بالأهداف وليس الوقت هو سر التفوق. أنت قدها!','لا تقلق من ضخامة المنهج، قسّمه إلى أهداف أسبوعية وستنجزه كله.','كل محاضرة تنهيها اليوم تقرّبك خطوة نحو حلمك بالكلية.','خطوة صغيرة اليوم أفضل من خطة كبيرة مؤجلة.','التقدم الهادئ المستمر يتفوق على الحماس المتقطع.'];
+let mi=0;$('#tk').textContent='💡 '+MSG[0];setInterval(()=>{mi=(mi+1)%MSG.length;$('#tk').textContent='💡 '+MSG[mi]},7000);
+setInterval(()=>{if(T.run&&Date.now()>=T.end)finish();else if(tab==='p')paint()},250);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden){if(T.run&&Date.now()>=T.end)finish();else R();syncPull()}});
+/* ===== المزامنة السحابية عبر Google Apps Script (اختيارية ومجانية، تعمل من الملف مباشرة) ===== */
+const SK='tareeqi_sync',SYNC={st:'off',col:null,t:null,busy:false,again:false};
+try{const c=JSON.parse(localStorage.getItem(SK)||'null');if(c&&c.url&&c.key){SYNC.col=c;SYNC.st='load'}}catch(e){}
+const GS=`const KEY='CHANGE-ME-123';
+function doGet(e){return out(e.parameter.k===KEY?read():'{"e":"auth"}')}
+function doPost(e){const b=JSON.parse(e.postData.contents);if(b.k!==KEY)return out('{"e":"auth"}');file().setContent(b.d);return out('{"ok":1}')}
+function file(){const f=DriveApp.getFilesByName('tareeqi-data.json');return f.hasNext()?f.next():DriveApp.createFile('tareeqi-data.json','{}')}
+function read(){return file().getBlob().getDataAsString()||'{}'}
+function out(s){return ContentService.createTextOutput(s).setMimeType(ContentService.MimeType.JSON)}`;
+const syncTxt=()=>({off:'غير مفعّلة (حفظ محلي فقط)',load:'جارٍ الاتصال…',ok:'متزامنة ✓',err:'تعذّرت المزامنة (البيانات محفوظة محلياً)'}[SYNC.st]||'');
+function syncSet(s){SYNC.st=s;const e=$('#sy');if(e)e.textContent=syncTxt()}
+async function syncGet(){const r=await fetch(SYNC.col.url+'?k='+encodeURIComponent(SYNC.col.key)),j=await r.json();if(!j||j.e)throw 0;return j}
+async function syncPush(){if(!SYNC.col)return;if(SYNC.busy){SYNC.again=true;return}SYNC.busy=true;
+try{do{SYNC.again=false;const r=await fetch(SYNC.col.url,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({k:SYNC.col.key,d:JSON.stringify(S)})}),j=await r.json();if(!j||!j.ok)throw 0}while(SYNC.again);syncSet('ok')}catch(e){syncSet('err')}SYNC.busy=false}
+function syncSoon(){if(!SYNC.col)return;clearTimeout(SYNC.t);SYNC.t=setTimeout(syncPush,2000)}
+async function syncPull(){if(!SYNC.col||SYNC.busy)return;syncSet('load');
+try{const d=await syncGet();if(valid(d)&&(d.u||0)>(S.u||0)){S=norm(d);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}applyTheme();if(!T.run)T.left=tdur();R();syncSet('ok')}else await syncPush()}catch(e){syncSet('err')}}
+function syncSave(){const url=$('#sy_u').value.trim(),key=$('#sy_k').value.trim();
+if(!url.startsWith('https://script.google.com/'))return toast('الرابط لازم يبدأ بـ https://script.google.com',1);if(!key)return toast('اكتب كلمة السر نفسها الموجودة في السيرفر',1);
+const c={url,key};try{localStorage.setItem(SK,JSON.stringify(c))}catch(e){}SYNC.col=c;R();syncPull()}
+function syncOff(){SYNC.col=null;try{localStorage.removeItem(SK)}catch(e){}syncSet('off');R();toast('تم إيقاف المزامنة (بياناتك في السحابة تبقى كما هي)')}
+function syncCode(){modal(`<div class="mh"><h3>كود السيرفر</h3><button class="b" onclick="closeM()" aria-label="إغلاق">✕</button></div><p><small>انسخه كله والصقه في Apps Script، وغيّر كلمة السر في أول سطر (حروف وأرقام إنجليزية).</small></p><textarea id="ex_j" rows="9" readonly onclick="this.select()">${esc(GS)}</textarea><div class="ba"><button class="b p" onclick="cpJ()">نسخ</button></div>`)}
+function syncUI(){const c=SYNC.col||{url:'',key:''};
+return `<div class="sr"><span>☁️ المزامنة السحابية</span><b id="sy">${syncTxt()}</b></div>
+<details><summary>${SYNC.col?'إعدادات المزامنة':'تفعيل المزامنة (مجانية)'}</summary>
+<ol style="padding-inline-start:18px;font-size:13px;color:var(--mu)"><li>افتح script.google.com وسجّل بحساب Google ثم «مشروع جديد».</li><li>امسح الكود الموجود، والصق كود السيرفر (زر النسخ بالأسفل) وغيّر كلمة السر في أول سطر.</li><li>اضغط «نشر» ← «نشر جديد» ← النوع «تطبيق ويب» ← التنفيذ «أنا» ← الوصول «أي شخص» ← نشر، ووافق على الأذونات.</li><li>انسخ رابط تطبيق الويب (ينتهي بـ exec) والصقه هنا مع كلمة السر نفسها.</li></ol>
+<div class="ba" style="margin:8px 0"><button class="b" onclick="syncCode()">نسخ كود السيرفر</button></div>
+<label>رابط تطبيق الويب</label><input id="sy_u" value="${esc(c.url)}" placeholder="https://script.google.com/macros/s/.../exec">
+<label>كلمة السر</label><input id="sy_k" value="${esc(c.key)}">
+<div class="ba"><button class="b p" onclick="syncSave()">حفظ وتفعيل</button>${SYNC.col?'<button class="b" onclick="syncPull()">مزامنة الآن</button><button class="b" onclick="syncOff()">إيقاف</button>':''}</div></details>`}
+if(SYNC.col)setTimeout(syncPull,300);
+applyTheme();R();
+</script></body></html>
